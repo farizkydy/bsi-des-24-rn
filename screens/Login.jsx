@@ -5,12 +5,11 @@ import { useNavigation } from '@react-navigation/native';
 
 export default function LoginScreen({route}) {
   const navigation = useNavigation();
-  const { name } = route.params; // mengambil dari props yang dikirim sebelumnya
   return (
       <View>
         {/* <Form></Form> */}
         <Button title="Go to Login" onPress={() => navigation.goBack()} />
-          <Text>data dari route sebelumnya: {name}</Text>
+          <Text>data dari route sebelumnya: </Text>
       </View>
   );
 }
