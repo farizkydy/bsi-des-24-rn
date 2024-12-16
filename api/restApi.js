@@ -22,4 +22,23 @@ export const createPost = async (postData) => {
   }
 };
 
+export const login = async (email, password) => {
+  try {
+    const response = await api.post('/login', { email, password });
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response?.data?.error || 'Login failed');
+  }
+};
+
+export const register = async (email, password) => {
+  try {
+    const response = await api.post('/register', { email, password });
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response?.data?.error || 'Registration failed');
+  }
+};
+
+
 export default api;
