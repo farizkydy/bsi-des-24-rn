@@ -16,12 +16,15 @@ export default function FormComponent({state}) {
   // }
   return (
     <SafeAreaView>
-      <TextInput
-      style={styles.input}
-      placeholder='Enter your name'
-      value={name}
-      onChangeText={(text) => setName(text)}
-      />
+      {state === 'register' &&
+       <TextInput
+       style={styles.input}
+       placeholder='Enter your name'
+       value={name}
+       onChangeText={(text) => setName(text)}
+       />
+      }
+     
       <TextInput
       style={styles.input}
       placeholder='Enter your email address'
@@ -56,6 +59,12 @@ export default function FormComponent({state}) {
         numberOfLines={4}
         onChangeText={setNotes}
       ></TextInput>
+
+      {state === 'login' ?
+        <Button title='Login' onPress={() => console.log('login')}></Button>
+        :
+        <Button title='Register' onPress={() => console.log('register')}></Button>
+      }
     </SafeAreaView>
   )
 }
