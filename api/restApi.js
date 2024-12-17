@@ -1,7 +1,14 @@
 import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+const token = AsyncStorage.getItem('userToken')
 
 const api = axios.create({
   baseURL: 'https://reqres.in/api',
+  headers: {
+  'Content-Type': 'application/json',
+  Authorization: 'Bearer ' + token
+  }
 });
 
 export const fetchPosts = async () => {
