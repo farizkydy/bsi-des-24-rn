@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, FlatList, ActivityIndicator } from 'react-native';
+import { View, Text, StyleSheet, FlatList, ActivityIndicator, Image } from 'react-native';
 import { fetchPosts } from "../api/restApi"
 
 export default function HomeScreen() {
@@ -40,8 +40,12 @@ export default function HomeScreen() {
       keyExtractor={(item) => item.id.toString()}
       renderItem={({ item }) => (
         <View style={styles.postContainer}>
-          <Text style={styles.title}>{item.title}</Text>
-          <Text style={styles.body}>{item.body}</Text>
+          <Text style={styles.title}>{item.first_name}</Text>
+          <Text style={styles.body}>{item.last_name}</Text>
+          <Image
+            source={{uri: item.avatar}}
+            style={{ width: 200, height: 200}}
+          ></Image>
         </View>
       )}
     />
